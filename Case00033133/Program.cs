@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using NServiceBus;
+using StructureMap;
 
 static class Program
 {
@@ -8,9 +9,14 @@ static class Program
     {
         Console.Title = "Case00033133";
         #region config
+
+        var container = new Container();
+
         var busConfiguration = new BusConfiguration();
         busConfiguration.EndpointName("Case00033133");
         busConfiguration.UseSerialization<NewtonsoftJsonSerializer>();
+
+        busConfiguration.UseContainer<StructureMapBuilder>(c => c.ExistingContainer(container));
 
         // register the mutator so the the message on the wire is written
         busConfiguration.RegisterComponents(components =>
