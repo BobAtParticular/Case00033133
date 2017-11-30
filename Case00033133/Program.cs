@@ -1,10 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using Case00033133;
-using Newtonsoft.Json;
 using NServiceBus;
-using NServiceBus.Configuration.AdvanceExtensibility;
-using NServiceBus.Serializers.Json;
 
 static class Program
 {
